@@ -39,6 +39,29 @@ function listItems(basket) {
 }
 
 
+function empty(basket) {
+    // Check that the basket has valid items
+    console.log('The basket should have two items:', basket)
+
+    // Take in a basket and reset the basket to an empty array
+    basket = []
+
+    // The function's basket is empty, but is appears to be scoped
+    // within this function
+    console.log(basket, 'This should be empty...')
+
+    // However, I never override the global `basket` variable, so
+    // all of this technically didn't matter. I need to instead return
+    // an empty array and assign that array back to the global
+    // `basket` variable.
+    
+    // --------OLD CODE-------
+    // return basket
+
+    //---------NEW CODE-------
+    return []
+}
+
 
 // Set basket to an empty array
 let basket = []
@@ -67,3 +90,19 @@ console.log('Basket should contain beans & more beans:', basket)
 // Because console.log() is contained within the function, it does
 // not need to be called here.
 listItems(basket)
+//-------
+
+//------Note from development:
+//      Fourth test.
+//
+// Test that a basket with valid items can be successfully reset
+// to an empty array.
+console.log('\n     This should signal where my old code was. NOT WORKING AS INTENDED')
+empty(basket)
+// Log out basket to ensure it is empty
+console.log('The basket should be empty:', basket)
+//
+console.log('\n         Here is my updated working code:')
+basket = empty(basket)
+console.log('Here is the updated method with the working `empty()` function', basket)
+//-------
