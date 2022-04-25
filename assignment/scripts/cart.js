@@ -10,8 +10,31 @@ function addItem(item, basket) {
 
 function listItems(basket) {
     // Loop over the `basket` array and console.log() the items
-    for (let item of basket) {
-        console.log(item)
+    //
+    // Found a link to using `entries()`, so updated this section to
+    // show my testing done to incorporate it.
+    for (let [index, item] of Object.entries(basket)) {
+
+
+        // This is my first attempt to format the console.log() text as wanted.
+        console.log(`ORIGINAL ATTEMPT (see comments): ${index + 1}.) ${item}`)
+
+        // The math of index + 1 is giving '01' and '11' for answers,
+        // so testing what datatype it is
+        console.log(index + 1, typeof(index), '>>>>>>')
+
+        // So here I found this StackOverflow answer: https://stackoverflow.com/a/1133814
+        // Therefore, I check that it produces the expected datatype.
+        //
+        // First, check that I can convert to a number without error.
+        // Second, verify the datatype is now a number
+        // Third, test that the +1 math now works
+        // Fourth, just add some text so I can quickly reference which console.log() line this is
+        console.log(Number(index), typeof(Number(index)), Number(index) + 1, '????')
+
+        // This is now my updated console.log() using the fixes
+        // referenced above.
+        console.log(`UPDATED ANSWER (see comments): ${Number(index) + 1}.) ${item}`)
     }
 }
 
